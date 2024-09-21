@@ -1,17 +1,15 @@
 from django.urls import path
-from .import views
+from .views import QuotesView  # Correct import based on views.py
 import regforms.views
 import login.views
-import quotes.views
-import quotesform.views
 import UserProfile.views
 
 urlpatterns = [
-    path('',views.indexview ,name="index"),
-    path('about/',views.aboutview.as_view(),name="about"),
-    path('signup/',regforms.views.signup,name="signup"),
-    path('login/',login.views.loginview,name="login"),
-    path('quotes/',quotes.views.quotesview.as_view(),name="quotes"),
-    #path('UserPofile/',UserProfile.views.userview.as_view(),name="UserProfile")
-
+    path('', login.views.indexview, name="index"),  # Ensure views are correctly imported
+    path('about/', login.views.aboutview.as_view(), name="about"),
+    path('signup/', regforms.views.signup, name="signup"),
+    path('login/', login.views.loginview, name="login"),
+    # Uncomment and fix UserProfile view when ready
+    # path('UserProfile/', UserProfile.views.userview.as_view(), name="UserProfile"),
+    path('quotes/', QuotesView.as_view(), name='quotes'),  # Use as_view()
 ]

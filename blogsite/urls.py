@@ -27,7 +27,7 @@ from django.conf.urls.static import static
 from . import  settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from quotes.views import QuotesView 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("home.urls")),
@@ -35,10 +35,11 @@ urlpatterns = [
     # path('about/',include("about.urls")),
     path('login/',login.views.loginview),
     path('signup/',regforms.views.signup),
-    path('quotes/',quotes.views.quotesview),
     path('quotesform/',quotesform.views.quotesformview),
     path('UserProfile/',UserProfile.views.userview.as_view()),
     path('about/', about.views.aboutview.as_view()),
+    path('', include("home.urls")),
+    path('quotes/', QuotesView.as_view(), name='quotes'),
 
 
 ]

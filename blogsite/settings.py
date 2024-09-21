@@ -79,14 +79,13 @@ WSGI_APPLICATION = 'blogsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blogsite',
+        'NAME': 'project',
         'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PASSWORD': '0000',  # Replace with your MySQL password
+        'HOST': 'localhost',
+        'PORT': '3307',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
